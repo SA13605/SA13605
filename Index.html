@@ -1,1 +1,539 @@
-/*samyak*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Template - Complete Example</title>
+    <meta name="description" content="A comprehensive HTML template with common elements">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Main Content Styles */
+        .hero {
+            background-color: white;
+            padding: 60px 0;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #182848;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            margin: 40px 0;
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #182848;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #4b6cb7;
+            outline: none;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        table th {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        table tr:hover {
+            background-color: #f5f9ff;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #182848;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ffcc00;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #ffcc00;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #ffcc00;
+            color: #182848;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">HTML<span>Template</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#form"><i class="fas fa-edit"></i> Form</a></li>
+                    <li><a href="#table"><i class="fas fa-table"></i> Table</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Complete HTML Template</h1>
+            <p>This is a comprehensive HTML template with commonly used elements including headers, navigation, cards, forms, tables, and a responsive layout.</p>
+            <a href="#features" class="btn">Explore Features</a>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <h2 class="section-title">HTML Elements & Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-code"></i> Semantic HTML5</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>This template uses semantic HTML5 elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> for better structure and accessibility.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-mobile-alt"></i> Responsive Design</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>The layout is fully responsive using CSS Grid, Flexbox, and media queries. It will adapt to all screen sizes from mobile to desktop.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-palette"></i> Modern Styling</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Features a clean, modern design with gradients, shadows, and smooth transitions for a polished user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form">
+            <h2 class="section-title">HTML Form Example</h2>
+            <div class="form-container">
+                <form id="sampleForm">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country"><i class="fas fa-globe"></i> Country</label>
+                        <select id="country" name="country">
+                            <option value="">Select a country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message here..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="subscribe"> Subscribe to newsletter
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Form</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Table Section -->
+        <section id="table">
+            <h2 class="section-title">HTML Table Example</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>HTML Element</th>
+                        <th>Description</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><code>&lt;div&gt;</code></td>
+                        <td>Defines a division or section</td>
+                        <td>Container for HTML elements</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><code>&lt;p&gt;</code></td>
+                        <td>Defines a paragraph</td>
+                        <td>For text content</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td>Defines a hyperlink</td>
+                        <td>For linking to other pages</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><code>&lt;img&gt;</code></td>
+                        <td>Embeds an image</td>
+                        <td>For displaying images</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><code>&lt;ul&gt; & &lt;li&gt;</code></td>
+                        <td>Defines unordered list and list items</td>
+                        <td>For bulleted lists</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About This Template</h3>
+                    <p>This is a complete HTML template with commonly used elements. It's fully responsive and includes examples of headers, navigation, cards, forms, and tables.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: #ddd; text-decoration: none; display: block; margin-bottom: 8px;">Home</a></li>
+                        <li><a href="#features" style="color: #ddd; text-decoration: none; display: block; margin-bottom: 8px;">Features</a></li>
+                        <li><a href="#form" style="color: #ddd; text-decoration: none; display: block; margin-bottom: 8px;">Form Example</a></li>
+                        <li><a href="#table" style="color: #ddd; text-decoration: none; display: block; margin-bottom: 8px;">Table Example</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 HTML Template Example. All rights reserved. | This template is for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('sampleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully! (This is a demo)');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>/*samyak*/
